@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class ConcessionariaTelecom {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Leitura do serviço a ser verificado
+        String servicoParaVerificar = scanner.nextLine().trim();
+
+        // Leitura da linha com o cliente e serviços contratados
+        String[] clienteEServicos = scanner.nextLine().split(",", 2);
+        String nomeCliente = clienteEServicos[0].trim();
+        String[] servicosContratados = clienteEServicos[1].split(",");
+
+        // Verificar se o serviço solicitado está na lista de serviços contratados
+        boolean servicoContratado = false;
+        for (String servico : servicosContratados) {
+            if (servico.trim().equals(servicoParaVerificar)) {
+                servicoContratado = true;
+                break;
+            }
+        }
+
+        // Imprimir o resultado
+        if (servicoContratado) {
+            System.out.println("Sim");
+        } else {
+            System.out.println("Nao");
+        }
+        
+        scanner.close();
+    }
+}
